@@ -56,6 +56,10 @@ module.exports = function(grunt) {
 				assetsDirs: 'build/'
 			}
 		},
+		clean: {
+			build: ['build'],
+			tmp: ['.tmp']
+		},
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -66,6 +70,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-filerev');
+	grunt.loadNpmTasks('grunt-contrib-clean');
 
 	grunt.registerTask('default', ['jshint']);
 
@@ -82,22 +87,17 @@ module.exports = function(grunt) {
 		grunt.log.ok(files + ' files generated for build');
 	});
 
-	grunt.registerTask('dev', ['clean-build', 'generate-files', 'copy:dev']);
+	grunt.registerTask('dev', ['clean:build', 'generate-files', 'copy:dev', 'clean:tmp']);
 
 	grunt.registerTask('build', [
-		'clean-build',
+		'clean:build',
 		'generate-files',
 		'useminPrepare',
 		'concat:generated',
 		'uglify:generated',
 		'cssmin:generated',
 		'filerev',
-		'printConfig',
-		'usemin'
+		'usemin',
+		'clean:tmp'
 	]);
-
-	grunt.registerTask('printConfig', function() {
-		grunt.log.writeln(JSON.stringify(grunt.filerev.summary, null, 2));
-	});
-
 };
