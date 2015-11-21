@@ -28,6 +28,7 @@ Outputs all files into ``./build/`` directory with css and js minified and conca
 
 * Articles should be defined by:
 
+```markdown
 	{
 		"title": "The title that appears in <title></title>"
 	}
@@ -40,3 +41,4 @@ Outputs all files into ``./build/`` directory with css and js minified and conca
 
 	The logo:
 	![HS LOGO](/assets/images/logo.png)
+```
