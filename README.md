@@ -28,7 +28,7 @@ Outputs all files into ``./build/`` directory with css and js minified and conca
 
 * Articles should be defined by:
 
-```markdown
+```html
 	{
 		"title": "The title that appears in <title></title>"
 	}
