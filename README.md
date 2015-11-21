@@ -26,3 +26,17 @@ Outputs all files into ``./build/`` directory with css and js minified and conca
 
 * All images should be sourced as ``/assets/images/[FILE]`` - the build will revision these in css, js, and markup
 
+* Articles should be defined by:
+
+	{
+		"title": "The title that appears in <title></title>"
+	}
+
+	---
+
+	#Article Content
+
+	Some article body
+
+	The logo:
+	![HS LOGO](/assets/images/logo.png)
