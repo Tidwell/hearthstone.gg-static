@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>
+			{{#if title}}
+				Hearthstone.gg - {{title}}
+			{{else}}
+				Hearthstone.gg
+			{{/if}}
+		</title>
+		<!-- build:css(./build/assets) /assets/css/styles.css -->
+		<link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+		<!-- endbuild -->
+	</head>
+	<body>
+		{{{ body }}}
+
+		<!-- build:js(./build/assets) /assets/js/script.js -->
+			<script src="/assets/js/index.js"></script>
+			<script src="/assets/js/other-file.js"></script>
+		<!-- endbuild -->
+	</body>
+</html>
