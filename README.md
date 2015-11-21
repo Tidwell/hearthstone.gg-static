@@ -26,7 +26,7 @@ Outputs all files into ``./build/`` directory with css and js minified and conca
 
 * All images should be sourced as ``/assets/images/[FILE]`` - the build will revision these in css, js, and markup
 
-* Articles should be defined in the following format.  Above the ``---`` should be a valid JSON object that will have all its properties exposed to the template (for example ``{ "title": "mytitle" }`` will expose a "title" property to the template).  The content below the ``---`` will be exposed as "content"
+* Articles should be defined in the following format.  Above the ``---`` should be a valid JSON object that will have all its properties exposed to the template (for example ``{ "title": "mytitle" }`` will expose a "title" property to the template).  The content below the ``---`` will be exposed as "body"
 
 ```html
 	{
