@@ -42,8 +42,7 @@ module.exports = function(grunt) {
 					dest: 'build/assets',
 					src: [
 						'*.{ico,txt,json}',
-						'images/**/*',
-						'fonts/*'
+						'images/**/*'
 					]
 				}]
 			},
@@ -60,17 +59,21 @@ module.exports = function(grunt) {
 				src: [
 					'build/assets/js/**/*.js',
 					'build/assets/css/**/*.css',
-					'build/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
-					'build/assets/fonts/*'
+					'build/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}'
 				]
 			}
 		},
 		usemin: {
 			html: ['build/**/*.html'],
 			css: ['build/assets/css/**/*.css'],
-			// js: ['build/assets/js/**/*.js'],
+			js: ['build/assets/js/**/*.js'],
 			options: {
-				assetsDirs: 'build/'
+				assetsDirs: 'build/',
+				patterns: {
+					js: [
+						[/(assets\/images\/.*?\.(?:gif|jpeg|jpg|png|webp))/gm, 'Update the JS to reference our revved images']
+					]
+				}
 			}
 		},
 		clean: {
