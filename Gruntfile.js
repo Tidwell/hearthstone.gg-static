@@ -25,6 +25,7 @@ module.exports = function(grunt) {
 			tasks: ['jshint', 'dev']
 		},
 		copy: {
+			// for the dev task we just copy everything from assets into build
 			dev: {
 				files: [
 					{
@@ -34,6 +35,10 @@ module.exports = function(grunt) {
 					}
 				],
 			},
+			/*
+				for the build task we need to only copy the images and any extra
+				files as usemin will take care of copying over the js and css files
+			*/
 			build: {
 				files: [{
 					expand: true,
@@ -47,6 +52,7 @@ module.exports = function(grunt) {
 				}]
 			},
 		},
+		// for the build task configure usemin to make sure to find references in all of our generated markup
 		useminPrepare: {
 			html: ['build/**/*.html'],
 			options: {
@@ -54,8 +60,9 @@ module.exports = function(grunt) {
 				root: './'
 			}
 		},
+		// for the build task configure the files we want to revision
 		filerev: {
-			dist: {
+			build: {
 				src: [
 					'build/assets/js/**/*.js',
 					'build/assets/css/**/*.css',
@@ -63,12 +70,14 @@ module.exports = function(grunt) {
 				]
 			}
 		},
+		// for the build task configure usemin for all the references it will replace
 		usemin: {
 			html: ['build/**/*.html'],
 			css: ['build/assets/css/**/*.css'],
 			js: ['build/assets/js/**/*.js'],
 			options: {
-				assetsDirs: 'build/',
+				assetsDirs: 'build/', // tell it where the built files can be found
+				// "hack" to replcae images found in js files
 				patterns: {
 					js: [
 						[/(assets\/images\/.*?\.(?:gif|jpeg|jpg|png|webp))/gm, 'Update the JS to reference our revved images']
@@ -76,6 +85,7 @@ module.exports = function(grunt) {
 				}
 			}
 		},
+		// clean up the generated files before/after the builds
 		clean: {
 			build: ['build'],
 			tmp: ['.tmp']
@@ -92,10 +102,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-filerev');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 
-	grunt.registerTask('default', ['jshint']);
-
-	grunt.registerTask('clean-build', function() { grunt.file.delete(buildPath); });
-
 	grunt.registerTask('generate-files', function() {
 		var files = 0;
 		contentFiles.forEach(function(folder) {
@@ -107,6 +113,14 @@ module.exports = function(grunt) {
 		grunt.log.ok(files + ' files generated for build');
 	});
 
+	/*
+		GRUNT TASKS
+	*/
+
+	//grunt watch is configured above and runs: ['jshint', 'dev']
+
+	grunt.registerTask('default', ['jshint', 'build']);
+
 	grunt.registerTask('dev', ['clean:build', 'generate-files', 'copy:dev', 'clean:tmp']);
 
 	grunt.registerTask('build', [
@@ -117,7 +131,7 @@ module.exports = function(grunt) {
 		'concat:generated',
 		'uglify:generated',
 		'cssmin:generated',
-		'filerev',
+		'filerev:build',
 		'usemin',
 		'clean:tmp'
 	]);

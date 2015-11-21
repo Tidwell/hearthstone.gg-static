@@ -19,3 +19,10 @@ Only copies all css/js files to ``./build/`` for easy debugging (no min/concat).
 ``grunt build``
 
 Outputs all files into ``./build/`` directory with css and js minified and concat and all html files with updated script/link tags
+
+
+
+##Notes
+
+* All images should be sourced as ``/assets/images/[FILE]`` - the build will revision these in css, js, and markup
+
