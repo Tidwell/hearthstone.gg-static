@@ -1,15 +1,19 @@
 var generator = require('./src/site-generator.js');
 
 module.exports = function(grunt) {
-	var allFiles = ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js', 'assets/js/**/*.js'];
-	var watchFiles = ['content/**/*', 'templates/**/*', 'assets/css/**/*'];
+	//group files to be passed to watching or jshint
+	var jsFiles = ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js', 'assets/js/**/*.js'];
+	var otherFiles = ['content/**/*', 'templates/**/*', 'assets/css/**/*'];
+	var allFiles = jsFiles.concat(otherFiles);
+
+	//define paths for the static site generator
 	var contentFiles = ['content/'];
 	var buildPath = 'build/';
 	var defaultTemplate = 'templates/index.hbs';
 
 	grunt.initConfig({
 		jshint: {
-			files: allFiles,
+			files: jsFiles,
 			options: {
 				globals: {
 					jQuery: true
@@ -17,7 +21,7 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
-			files: ['<%= jshint.files %>'].concat(watchFiles),
+			files: allFiles,
 			tasks: ['jshint', 'dev']
 		},
 		copy: {
@@ -29,6 +33,19 @@ module.exports = function(grunt) {
 						dest: 'build/'
 					}
 				],
+			},
+			build: {
+				files: [{
+					expand: true,
+					dot: true,
+					cwd: 'assets',
+					dest: 'build/assets',
+					src: [
+						'*.{ico,txt,json}',
+						'images/**/*',
+						'fonts/*'
+					]
+				}]
 			},
 		},
 		useminPrepare: {
@@ -92,6 +109,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('build', [
 		'clean:build',
 		'generate-files',
+		'copy:build',
 		'useminPrepare',
 		'concat:generated',
 		'uglify:generated',

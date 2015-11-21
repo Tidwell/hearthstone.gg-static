@@ -2,3 +2,10 @@ html {
 	background: #ccc;
 	color: #3d3d3d;
 }
+h1 {
+	background: url('/assets/images/logo.png') no-repeat;
+	width: 533px;
+	height: 202px;
+	text-indent: -9999px;
+	direction: ltr;
+}
