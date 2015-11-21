@@ -23,17 +23,16 @@ module.exports = function(grunt) {
 		copy: {
 			dev: {
 				files: [
-					// includes files within path and its sub-directories
 					{
 						expand: true,
-						src: ['assets/**'],
+						src: ['assets/{,*/}*'],
 						dest: 'build/'
 					}
 				],
 			},
 		},
 		useminPrepare: {
-			html: ['build/**/*.html'],
+			html: ['build/{,*/}*.html'],
 			options: {
 				dest: 'build',
 				root: './'
@@ -42,19 +41,19 @@ module.exports = function(grunt) {
 		filerev: {
 			dist: {
 				src: [
-					'build/assets/js/**/*.js',
-					'build/assets/css/**/*.css',
-					'build/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
+					'build/assets/js/{,*/}*.js',
+					'build/assets/css/{,*/}*.css',
+					'build/assets/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
 					'build/assets/fonts/*'
 				]
 			}
 		},
 		usemin: {
-			html: ['build/**/*.html'],
-			css: ['build/assets/css/**/*.css'],
+			html: ['build/{,*/}*.html'],
+			css: ['build/assets/css/{,*/}*.css'],
+			// js: ['build/assets/js/**/*.js'],
 			options: {
-				dirs: ['build'],
-				assetDirs: ['build/assets/']
+				assetsDirs: 'build/'
 			}
 		},
 	});
