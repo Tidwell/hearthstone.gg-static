@@ -142,15 +142,15 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('generate-files', function() {
 		var gen = generator.createGenerator(grunt, buildPath, defaultTemplate);
-		var files = 0;
-		contentFiles.forEach(function(folder) {
-			grunt.file.recurse(folder, function(abspath, rootdir) {
-				gen.addFile(abspath, rootdir);
-				files++;
-			});
-		});
+
+		//add all the files to the generator
+		gen.addFiles(contentFiles);
+
+		//add custom transforms
+
+		//create files
 		gen.generate();
-		grunt.log.ok(files + ' files generated for build');
+		grunt.log.ok(gen.documents.length + ' files generated for build');
 	});
 
 	/*

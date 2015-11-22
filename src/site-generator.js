@@ -40,6 +40,15 @@ SiteGenerator.prototype.addFile = function(fileAbsolutePath, fileRootDir) {
 	});
 };
 
+SiteGenerator.prototype.addFiles = function(paths) {
+	var self = this;
+	paths.forEach(function(folder) {
+		self.grunt.file.recurse(folder, function(abspath, rootdir) {
+			self.addFile(abspath, rootdir);
+		});
+	});
+};
+
 //adds a transformation function before another transformer
 SiteGenerator.prototype.addTransformationBefore = function(before, name, transformFunction) {
 	var transformIndex = this.transformations.indexOf(before);
