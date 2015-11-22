@@ -5,8 +5,8 @@ if [ -n "$(git status --porcelain)" ]; then
 	echo 'Files not commited to git.  Do that before deploy.';
 	exit 1;
 fi
-if [ -n "$(git diff-index --quiet HEAD --)" ]; then 
-	echo 'Files not pushed upstream via git.  Do that before deploy.'
+if [ -n "$(git diff origin/master..HEAD)" ]; then 
+	echo 'Files not pushed upstream via git or not on MASTER.  Do that before deploy.'
 	exit 1;
 fi
 
