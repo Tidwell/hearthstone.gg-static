@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+status=`git status`;
+echo ${status};
 read -p "Are you sure? " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
