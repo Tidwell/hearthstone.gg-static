@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 
-status=`git diff --exit-code`;
-echo ${status};
-if [[ !${status} ]]
-then
-	echo 'Git okay, ready to deploy';
-else
+
+if [ -n "$(git status --porcelain)" ]; then 
 	echo 'Files not commited to git.  Do that before deploy.';
 	exit 1;
+else
+	echo 'Git okay, ready to deploy';
 fi
-read -p "Are you sure? " -n 1 -r
+
+read -p "Are you sure you want to deploy?  This will replace *everything* on the server. " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
