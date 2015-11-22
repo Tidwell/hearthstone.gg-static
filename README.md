@@ -35,6 +35,13 @@ Runs build then statically serves the ``./build/`` directory and opens in the br
 
 
 
+#Deploy
+``./build.sh``
+
+* Don't run build-serve or dev while trying to deploy
+
+
+
 ##Notes
 
 * The ``master`` branch is always deployed live.  All content work and dev should be done on a feature branch and merged to master to be deployed.
