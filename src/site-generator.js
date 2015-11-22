@@ -22,6 +22,8 @@ function SiteGenerator(grunt, buildPath, defaultTemplate) {
 	return this;
 }
 
+SiteGenerator.prototype.transformFunctions = {};
+
 //adds a file to the document list
 SiteGenerator.prototype.addFile = function(fileAbsolutePath, fileRootDir) {
 	this.documents.push({
@@ -32,7 +34,7 @@ SiteGenerator.prototype.addFile = function(fileAbsolutePath, fileRootDir) {
 };
 
 //reads all documents
-SiteGenerator.prototype.readFiles = function() {
+SiteGenerator.prototype.transformFunctions.readFiles = function() {
 	var self = this;
 	self.documents.forEach(function(document){
 		var content = self.grunt.file.read(document.fileAbsolutePath);
@@ -41,7 +43,7 @@ SiteGenerator.prototype.readFiles = function() {
 };
 
 //spit on --- for metadata content and markdown body content
-SiteGenerator.prototype.splitRaw = function() {
+SiteGenerator.prototype.transformFunctions.splitRaw = function() {
 	var self = this;
 	self.documents.forEach(function(document) {
 		if (!document.rawFile) { return; }
@@ -61,14 +63,14 @@ SiteGenerator.prototype.splitRaw = function() {
 };
 
 // convert markdown to markup for the content
-SiteGenerator.prototype.parseMarkdown = function() {
+SiteGenerator.prototype.transformFunctions.parseMarkdown = function() {
 	this.documents.forEach(function(document) {
 		document.data.body = marked(document.data.body);
 	});
 };
 
 //render through the template
-SiteGenerator.prototype.template = function() {
+SiteGenerator.prototype.transformFunctions.template = function() {
 	var self = this;
 
 	self.documents.forEach(function(document) {
@@ -78,7 +80,7 @@ SiteGenerator.prototype.template = function() {
 	});
 };
 
-SiteGenerator.prototype.destinationFiles = function() {
+SiteGenerator.prototype.transformFunctions.destinationFiles = function() {
 	var self = this;
 
 	self.documents.forEach(function(document) {
@@ -89,7 +91,7 @@ SiteGenerator.prototype.destinationFiles = function() {
 };
 
 //writes to disk
-SiteGenerator.prototype.writeFiles = function() {
+SiteGenerator.prototype.transformFunctions.writeFiles = function() {
 	var self = this;
 	this.documents.forEach(function(document) {
 		self.grunt.file.write(document.outputPath, document.markup);
@@ -119,8 +121,8 @@ SiteGenerator.prototype.addTransformationAfter = function(after, name, transform
 SiteGenerator.prototype.generate = function() {
 	var self = this;
 	this.transformations.forEach(function(transform){
-		if (self[transform]) {
-			self[transform].apply(self);
+		if (self.transformFunctions[transform]) {
+			self.transformFunctions[transform].apply(self);
 		}
 		else if (self.userTransforms[transform]) {
 			self.userTransforms[transform].apply(self);
