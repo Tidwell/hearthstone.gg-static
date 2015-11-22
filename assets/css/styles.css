@@ -5,7 +5,9 @@ body {
 	font-size: 16px;
 	letter-spacing: .04em
 }
-
+h1 {
+	text-shadow: 2px 2px #3d3d3d;
+}
 h1, h2 {
 	font-family: 'Jim Nightshade', cursive;
 }
