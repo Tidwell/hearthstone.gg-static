@@ -2,12 +2,17 @@ var marked = require('marked');
 var handlebars = require('handlebars');
 
 function SiteGenerator(grunt, buildPath, defaultTemplate) {
-	if (!grunt || !buildPath || !defaultTemplate) { throw new Error('No grunt instance or buildPath passed.'); }
+	//check required
+	if (!grunt || !buildPath || !defaultTemplate) {
+		throw new Error('No grunt instance or buildPath passed.');
+	}
 
+	//set input
 	this.grunt = grunt;
 	this.buildPath = buildPath;
 	this.defaultTemplate = defaultTemplate;
 	
+	//set up instance vars
 	this.documents = [];
 	this.transformations = [
 		'readFiles',
@@ -22,7 +27,9 @@ function SiteGenerator(grunt, buildPath, defaultTemplate) {
 	return this;
 }
 
-SiteGenerator.prototype.transformFunctions = {};
+/*
+	PUBLIC METHODS
+*/
 
 //adds a file to the document list
 SiteGenerator.prototype.addFile = function(fileAbsolutePath, fileRootDir) {
@@ -32,6 +39,48 @@ SiteGenerator.prototype.addFile = function(fileAbsolutePath, fileRootDir) {
 		data: {}
 	});
 };
+
+//adds a transformation function before another transformer
+SiteGenerator.prototype.addTransformationBefore = function(before, name, transformFunction) {
+	var transformIndex = this.transformations.indexOf(before);
+	if (transformIndex === -1) {
+		throw new Error('No transform found to insert before: ' + before);
+	}
+	//add it before
+	this.transformations.splice(transformIndex, 0, name);
+	this.userTransforms[name] = transformFunction;
+};
+
+//adds a transformation function after another transformer
+SiteGenerator.prototype.addTransformationAfter = function(after, name, transformFunction) {
+	var transformIndex = this.transformations.indexOf(after);
+	if (transformIndex === -1) {
+		throw new Error('No transform found to insert after: ' + after);
+	}
+	//add it after
+	this.transformations.splice(transformIndex + 1, 0, name);
+	this.userTransforms[name] = transformFunction;
+};
+
+//runs all the transform functions on the documents
+SiteGenerator.prototype.generate = function() {
+	var self = this;
+	this.transformations.forEach(function(transform){
+		if (self.transformFunctions[transform]) {
+			self.transformFunctions[transform].apply(self);
+		}
+		else if (self.userTransforms[transform]) {
+			self.userTransforms[transform].apply(self);
+		}
+	});
+};
+
+
+/*
+	DEFAULT TRANSFORMATION FUNCTIONS FOR PROCESSING DOCUMENTS
+*/
+
+SiteGenerator.prototype.transformFunctions = {};
 
 //reads all documents
 SiteGenerator.prototype.transformFunctions.readFiles = function() {
@@ -98,38 +147,7 @@ SiteGenerator.prototype.transformFunctions.writeFiles = function() {
 	});
 };
 
-SiteGenerator.prototype.addTransformationBefore = function(before, name, transformFunction) {
-	var transformIndex = this.transformations.indexOf(before);
-	if (transformIndex === -1) {
-		throw new Error('No transform found to insert before: ' + before);
-	}
-	//add it before
-	this.transformations.splice(transformIndex, 0, name);
-	this.userTransforms[name] = transformFunction;
-};
-
-SiteGenerator.prototype.addTransformationAfter = function(after, name, transformFunction) {
-	var transformIndex = this.transformations.indexOf(after);
-	if (transformIndex === -1) {
-		throw new Error('No transform found to insert after: ' + after);
-	}
-	//add it after
-	this.transformations.splice(transformIndex + 1, 0, name);
-	this.userTransforms[name] = transformFunction;
-};
-
-SiteGenerator.prototype.generate = function() {
-	var self = this;
-	this.transformations.forEach(function(transform){
-		if (self.transformFunctions[transform]) {
-			self.transformFunctions[transform].apply(self);
-		}
-		else if (self.userTransforms[transform]) {
-			self.userTransforms[transform].apply(self);
-		}
-	});
-};
-
+//export a factory so there is no confusion with using 'new'
 module.exports = {
 	createGenerator: function(grunt, buildPath, defaultTemplate) {
 		return new SiteGenerator(grunt, buildPath, defaultTemplate);
