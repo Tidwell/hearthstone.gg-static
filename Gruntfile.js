@@ -26,6 +26,7 @@ module.exports = function(grunt) {
 			files: allFiles,
 			tasks: ['live-reload-build'],
 			options: {
+				//when watch is called we want to spin up a livereload server
 				livereload: {
 					host: 'localhost'
 				}
@@ -118,7 +119,7 @@ module.exports = function(grunt) {
 				hostname: 'localhost',
 				livereload: 35729
 			},
-			livereload: {
+			dev: {
 				options: {
 					open: true,
 					base: [
@@ -160,7 +161,7 @@ module.exports = function(grunt) {
 	//grunt watch runs this task whenever a change is detected
 	grunt.registerTask('live-reload-build', ['clean:build', 'generate-files', 'copy:dev', 'clean:tmp']);
 
-	grunt.registerTask('dev', ['clean:build', 'generate-files', 'copy:dev', 'clean:tmp', 'connect:livereload', 'watch']);
+	grunt.registerTask('dev', ['clean:build', 'generate-files', 'copy:dev', 'clean:tmp', 'connect:dev', 'watch']);
 
 	grunt.registerTask('build', [
 		'clean:build',
