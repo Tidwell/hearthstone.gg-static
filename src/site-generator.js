@@ -10,12 +10,16 @@ function SiteGenerator(grunt, buildPath, defaultTemplate) {
 	
 	this.documents = [];
 	this.transformations = [
-		this.readFiles,
-		this.splitRaw,
-		this.parseMarkdown,
-		this.template,
-		this.writeFiles
+		'readFiles',
+		'splitRaw',
+		'parseMarkdown',
+		'destinationFiles',
+		'template',
+		'writeFiles'
 	];
+	this.userTransforms = {};
+
+	return this;
 }
 
 //adds a file to the document list
@@ -74,20 +78,53 @@ SiteGenerator.prototype.template = function() {
 	});
 };
 
+SiteGenerator.prototype.destinationFiles = function() {
+	var self = this;
+
+	self.documents.forEach(function(document) {
+		//write the file out
+		var destPath = document.fileAbsolutePath.replace(document.fileRootDir, self.buildPath);
+		document.outputPath = destPath.replace('.md', '.html');
+	});
+};
+
 //writes to disk
 SiteGenerator.prototype.writeFiles = function() {
 	var self = this;
 	this.documents.forEach(function(document) {
-		//write the file out
-		var destPath = document.fileAbsolutePath.replace(document.fileRootDir, self.buildPath).replace('.md', '.html');
-		self.grunt.file.write(destPath, document.markup);
+		self.grunt.file.write(document.outputPath, document.markup);
 	});
+};
+
+SiteGenerator.prototype.addTransformationBefore = function(before, name, transformFunction) {
+	var transformIndex = this.transformations.indexOf(before);
+	if (transformIndex === -1) {
+		throw new Error('No transform found to insert before: ' + before);
+	}
+	//add it before
+	this.transformations.splice(transformIndex, 0, name);
+	this.userTransforms[name] = transformFunction;
+};
+
+SiteGenerator.prototype.addTransformationAfter = function(after, name, transformFunction) {
+	var transformIndex = this.transformations.indexOf(after);
+	if (transformIndex === -1) {
+		throw new Error('No transform found to insert after: ' + after);
+	}
+	//add it after
+	this.transformations.splice(transformIndex + 1, 0, name);
+	this.userTransforms[name] = transformFunction;
 };
 
 SiteGenerator.prototype.generate = function() {
 	var self = this;
 	this.transformations.forEach(function(transform){
-		transform.apply(self);
+		if (self[transform]) {
+			self[transform].apply(self);
+		}
+		else if (self.userTransforms[transform]) {
+			self.userTransforms[transform].apply(self);
+		}
 	});
 };
 
