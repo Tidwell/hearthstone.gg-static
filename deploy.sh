@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
 
-if [ -n "$(git status --porcelain)" ]; then 
-	echo 'Files not commited to git.  Do that before deploy.';
-	exit 1;
-fi
+
+echo $(git diff origin/master..HEAD);
 if [ -n "$(git diff origin/master..HEAD)" ]; then
 	echo 'Files not pushed upstream via git.  Do that before deploy.'
 	exit 1;
