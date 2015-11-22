@@ -40,6 +40,8 @@ Runs build then statically serves the ``./build/`` directory and opens in the br
 
 * Don't run ``grunt build-serve`` or ``grunt dev`` while trying to deploy - stuff will be deployed in an undefined state due to the watcher going haywire on build.
 
+* For deploy to run everything must be committed to git, on the ``master`` branch, and pushed to the origin.
+
 
 
 ##Notes
