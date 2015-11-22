@@ -1,5 +1,6 @@
 {
-	"title": "About"
+	"title": "About",
+	"template": "templates/page.hbs"
 }
 
 ---

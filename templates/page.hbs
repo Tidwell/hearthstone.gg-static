@@ -4,18 +4,6 @@
 		{{> sidebar }}
 		<section class="col-md-8 col-sm-12 col-md-offset-4 main-content">
 			{{{ body }}}
-
-			<br />
-			<ul>
-			{{#each allDocs}}
-				{{#if isArticle}}
-					<li><a href="/{{ this.path }}" />{{ this.title }}</a></li>
-				{{/if}}
-			{{/each}}
-			</ul>
-			<!--
-			{{json allDocs}}
-			-->
 		</section>
 	</div>
 </div>

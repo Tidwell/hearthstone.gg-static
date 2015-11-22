@@ -4,11 +4,12 @@ module.exports = function() {
 	self.documents.forEach(function(doc){
 		docList.push({
 			title: doc.data.title,
-			outputPath: doc.outputPath
+			outputPath: doc.outputPath,
+			path: doc.outputPath.replace(self.buildPath, ''),
+			isArticle: doc.data.type === 'article' ? true : false
 		});
 	});
 	self.documents.forEach(function(doc){
-		//create a disgusting circular reference
 		doc.data.allDocs = docList;
 	});
 };

@@ -116,7 +116,6 @@ SiteGenerator.prototype.transformFunctions.splitRaw = function() {
 		} else {
 			document.data.body = splitContent[0];
 		}
-
 	});
 };
 
@@ -131,9 +130,17 @@ SiteGenerator.prototype.transformFunctions.parseMarkdown = function() {
 SiteGenerator.prototype.transformFunctions.template = function() {
 	var self = this;
 
+	//load helpers
 	var handlebarsHelpers = require('./handlebars-helpers');
 	handlebarsHelpers.forEach(function(func){
 		func(handlebars);
+	});
+
+	//load partials
+	self.grunt.file.recurse('templates/partials', function(abspath, rootdir, subdir, filename) {
+		var template = self.grunt.file.read(abspath);
+		var partialName = filename.replace('.hbs', '');
+		handlebars.registerPartial(partialName, handlebars.compile(template));
 	});
 
 	self.documents.forEach(function(document) {
