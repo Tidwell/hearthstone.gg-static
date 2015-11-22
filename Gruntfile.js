@@ -147,6 +147,9 @@ module.exports = function(grunt) {
 		gen.addFiles(contentFiles);
 
 		//add custom transforms
+		var userTransforms = require('./src/transforms');
+
+		gen.addTransformationAfter('destinationFiles', 'document-info-aggregator', userTransforms.documentInfoAggregator);
 
 		//create files
 		gen.generate();

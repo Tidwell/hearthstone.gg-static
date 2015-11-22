@@ -100,7 +100,7 @@ SiteGenerator.prototype.transformFunctions.readFiles = function() {
 	});
 };
 
-//spit on --- for metadata content and markdown body content
+//split on --- for metadata content and markdown body content
 SiteGenerator.prototype.transformFunctions.splitRaw = function() {
 	var self = this;
 	self.documents.forEach(function(document) {
@@ -131,6 +131,11 @@ SiteGenerator.prototype.transformFunctions.parseMarkdown = function() {
 SiteGenerator.prototype.transformFunctions.template = function() {
 	var self = this;
 
+	var handlebarsHelpers = require('./handlebars-helpers');
+	handlebarsHelpers.forEach(function(func){
+		func(handlebars);
+	});
+
 	self.documents.forEach(function(document) {
 		var template = self.grunt.file.read(document.data.template || self.defaultTemplate);
 		var templateRenderer = handlebars.compile(template);
@@ -138,11 +143,11 @@ SiteGenerator.prototype.transformFunctions.template = function() {
 	});
 };
 
+//generate the path to write the file to
 SiteGenerator.prototype.transformFunctions.destinationFiles = function() {
 	var self = this;
 
 	self.documents.forEach(function(document) {
-		//write the file out
 		var destPath = document.fileAbsolutePath.replace(document.fileRootDir, self.buildPath);
 		document.outputPath = destPath.replace('.md', '.html');
 	});

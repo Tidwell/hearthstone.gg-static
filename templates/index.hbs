@@ -19,9 +19,6 @@
 		<!-- endbuild -->
 	</head>
 	<body>
-		{{before}}
-		{{after}}
-
 		<div class="container-fluid">
 			<div class="row">
 				<section class="sidebar col-md-4 col-sm-12" data-sidebar>
@@ -42,6 +39,8 @@
 				</section>
 				<section class="col-md-8 col-sm-12 col-md-offset-4 main-content">
 					{{{ body }}}
+
+					{{json allDocs}}
 				</section>
 			</div>
 		</div>
