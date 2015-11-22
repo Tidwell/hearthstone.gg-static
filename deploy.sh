@@ -2,7 +2,7 @@
 
 status=`git status`;
 echo ${status};
-if [[ ${status} == 'On branch deploy-git-check nothing to commit, working directory clean' ]]
+if [[ ${status} == 'On branch deploy-git-check\nnothing to commit, working directory clean' ]]
 then
 	echo 'Git okay, ready to deploy';
 else
