@@ -60,7 +60,6 @@ SiteGenerator.prototype.splitRaw = function() {
 SiteGenerator.prototype.parseMarkdown = function() {
 	this.documents.forEach(function(document) {
 		document.data.body = marked(document.data.body);
-
 	});
 };
 
