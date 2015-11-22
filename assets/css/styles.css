@@ -3,7 +3,8 @@ body {
 }
 * {
 	font-size: 16px;
-	letter-spacing: .04em
+	letter-spacing: .04em;
+	line-height: 1.5em;
 }
 h1 {
 	text-shadow: 2px 2px #3d3d3d;
