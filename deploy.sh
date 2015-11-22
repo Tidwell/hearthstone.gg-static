@@ -8,7 +8,7 @@ else
 	echo 'Git okay, ready to deploy';
 fi
 
-read -p "Are you sure you want to deploy?  This will replace *everything* on the server. " -n 1 -r
+read -p "Are you sure you want to deploy?  This will replace *everything* on the server. (y/n) " -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
