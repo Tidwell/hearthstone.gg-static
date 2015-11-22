@@ -3,6 +3,17 @@
 Content is in ``./content/`` in markdown format
 
 
+##Install
+``npm install``
+
+``bower install``
+
+
+
+##Run
+``grunt build-serve``
+
+
 
 ##Dev
 ``grunt dev``
@@ -21,6 +32,8 @@ Outputs all files into ``./build/`` directory with css and js minified and conca
 ``grunt build-serve``
 
 Runs build then statically serves the ``./build/`` directory and opens in the browser.
+
+
 
 ##Notes
 
