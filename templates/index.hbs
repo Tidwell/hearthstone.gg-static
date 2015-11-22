@@ -11,16 +11,26 @@
 		<!-- build:css /assets/css/styles.css -->
 		<link rel="stylesheet" type="text/css" href="/assets/bower_components/bootstrap/dist/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
+		<link rel="stylesheet" type="text/css" href="/assets/css/sidebar.css">
 		<!-- endbuild -->
 	</head>
 	<body>
 		<div class="container-fluid">
 			<div class="row">
 					<section class="sidebar col-md-4 col-sm-12">
+						<button class="btn btn-default" type="button">
+							<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+						</button>
+
+						<ul class="menu">
+							<li><a href="/">Home</a>
+							<li><a href="/archives.html">Archive</a>
+							<li><a href="/about.html">About</a>
+						</ul>
 						<div class="sidebar-content">
 							<h1>Hearthstone.gg</h1>
 							<hr />
-							<strong>Your Endgame for Hearthstone Content</strong>
+							<strong>Endgame Hearthstone Content</strong>
 						</div>
 					</section>
 					<section class="col-md-8 col-sm-12 col-md-offset-4 main-content">
@@ -33,7 +43,7 @@
 			<script type="text/javascript" src="/assets/bower_components/jquery/dist/jquery.js"></script>
 			<script type="text/javascript" src="/assets/bower_components/bootstrap/dist/js/bootstrap.js"></script>
 			<script type="text/javascript" src="/assets/js/index.js"></script>
-			<script type="text/javascript" src="/assets/js/other-file.js"></script>
+			<script type="text/javascript" src="/assets/js/menu.js"></script>
 		<!-- endbuild -->
 	</body>
 </html>

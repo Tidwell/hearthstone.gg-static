@@ -5,28 +5,7 @@
 .container {
 	margin: 0;
 }
-.sidebar {
-	background: url('/assets/images/sidebar-bg.png') no-repeat;
-	background-position: bottom;
-	background-size: cover;
-	min-height: 300px;
-}
-.sidebar-content {
-	color: #fff;
-	position: absolute;
-	bottom: 2em;
-	left: 2em;
-	margin-right: 2em;
-}
-.sidebar-content h1 {
-	margin: 0;
-}
-.sidebar-content strong {
-	font-weight: normal;
-}
-.sidebar-content hr {
-	margin: .5em 0;
-}
+
 
 .main-content {
 	padding: 2em;
@@ -35,13 +14,6 @@
 
 
 @media (min-width: 992px) {
-	.sidebar {
-	    height: 100%;
-	    position: fixed;
-	    background-size: cover;
-	}
-	.sidebar-content {
-	}
 	.main-content {
 		max-width: 60%;
 	}
