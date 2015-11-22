@@ -14,17 +14,20 @@
 		<!-- endbuild -->
 	</head>
 	<body>
-		<h1>Hearthstone.gg</h1>
-
-		<button type="button" class="btn btn-default" aria-label="Left Align">
-		<span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
-		</button>
-
-		<button type="button" class="btn btn-default btn-lg">
-		<span class="glyphicon glyphicon-star" aria-hidden="true"></span> Star
-		</button>
-
-		{{{ body }}}
+		<div class="container-fluid">
+			<div class="row">
+					<section class="sidebar col-md-4 col-sm-12">
+						<div class="sidebar-content">
+							<h1>Hearthstone.gg</h1>
+							<hr />
+							<strong>Your Endgame for Hearthstone Content</strong>
+						</div>
+					</section>
+					<section class="col-md-8 col-sm-12 col-md-offset-4 main-content">
+						{{{ body }}}
+					</section>
+			</div>
+		</div>
 
 		<!-- build:js /assets/js/script.js -->
 			<script type="text/javascript" src="/assets/bower_components/jquery/dist/jquery.js"></script>
