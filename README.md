@@ -36,9 +36,9 @@ Runs build then statically serves the ``./build/`` directory and opens in the br
 
 
 #Deploy
-``./build.sh``
+``./deploy.sh``
 
-* Don't run build-serve or dev while trying to deploy
+* Don't run ``grunt build-serve`` or ``grunt dev`` while trying to deploy - stuff will be deployed in an undefined state due to the watcher going haywire on build.
 
 
 
