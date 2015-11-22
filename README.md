@@ -18,8 +18,7 @@ Content is in ``./content/`` in markdown format
 ##Dev
 ``grunt dev``
 
-Only copies all css/js files to ``./build/`` for easy debugging (no min/concat).  Does not change script/link tags.  Also
-spins up a livereload connect server and opens in the browser.
+Only copies all css/js files to ``./build/`` for easy debugging (no min/concat).  Does not change script/link tags.  Also spins up a livereload connect server and opens in the browser.
 
 
 
