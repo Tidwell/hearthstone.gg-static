@@ -3,10 +3,18 @@
 	background-position: bottom;
 	background-size: cover;
 	min-height: 300px;
+	box-shadow: 3px 3px 10px #888888;
+	z-index: 2;
 }
 
-.sidebar button {
+/*
+	Menu styles
+*/
+.sidebar .menu-trigger {
 	display: none;
+	position: absolute;
+	left: 2em;
+	top: 2em;
 }
 
 .sidebar .menu {
@@ -28,6 +36,36 @@
 	color: rgba(85,155,155,1);
 }
 
+
+.sidebar.js-active, .main-content.js-active {
+	left: 0;
+	transition: left 200ms ease-in-out;
+}
+.sidebar.js-active .menu-trigger {
+	display: block;
+}
+.sidebar.js-active .menu {
+	left: -300px;
+	width: 300px;
+	height: 100%;
+	position: fixed;
+	background: rgba(48,42,41,1);
+	transition: left 200ms ease-in-out, box-shadow 200ms ease-in-out;
+}
+.sidebar.js-active.menu-open {
+	left: 300px;
+}
+.sidebar.js-active.menu-open .menu {
+	left: 0;
+}
+.sidebar.js-active .menu li {
+	float: none;
+	margin: 0 0 1em 1em;
+}
+
+/*
+	Branding content
+*/
 .sidebar-content {
 	color: #fff;
 	position: absolute;
@@ -50,9 +88,13 @@
 	    height: 100%;
 	    position: fixed;
 	    background-size: cover;
+	    box-shadow: 3px 0 10px #888888;
 	}
 	.sidebar .menu li {
 		float: none;
 		margin: 0 0 1em 0;
+	}
+	.sidebar.js-active.menu-open .menu {
+		box-shadow: 3px 0 10px #3d3d3d;
 	}
 }
