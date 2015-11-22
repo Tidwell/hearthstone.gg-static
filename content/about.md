@@ -3,7 +3,7 @@ About
 
 [Hearthstone] [1] content focused on design, tooling, and documentation.
 
-Hearthstone.gg features articles focusing on official announcements, discovered facts or insights, and the technical construction of the game.  If you want to explore the game under-the-hood or gain new insight into blizzard's design methodology - these are the articles you are looking for.
+Hearthstone.gg features articles about official announcements, discovered facts or insights, and the technical construction of the game.  If you want to explore the game under-the-hood or gain new insight into blizzard's design methodology - these are the articles you are looking for.
 
 Hearthstone.gg does not focus on deckbuilding, the metagame, card reviews, or tournament recaps.  Plenty of great sites feature content for those aspects of the game - we do not.
 
