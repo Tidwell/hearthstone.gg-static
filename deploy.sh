@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-status=`git status`;
+status=`git diff --exit-code`;
 echo ${status};
 if [[ ${status} == 'On branch deploy-git-check\nnothing to commit, working directory clean' ]]
 then
