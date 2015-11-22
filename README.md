@@ -37,6 +37,8 @@ Runs build then statically serves the ``./build/`` directory and opens in the br
 
 ##Notes
 
+* The ``master`` branch is always deployed live.  All content work and dev should be done on a feature branch and merged to master to be deployed.
+
 * All images should be sourced as ``/assets/images/[FILE]`` - the build will revision these in css, js, and markup
 
 * Articles should be defined in the following format.  Above the ``---`` should be a valid JSON object that will have all its properties exposed to the template (for example ``{ "title": "mytitle" }`` will expose a "title" property to the template).  The content below the ``---`` will be exposed as "body"
