@@ -11,7 +11,8 @@ Watches and regenerates files on changes.  Calls grunt jshint and dev tasks to r
 
 ``grunt dev``
 
-Only copies all css/js files to ``./build/`` for easy debugging (no min/concat).  Does not change script/link tags
+Only copies all css/js files to ``./build/`` for easy debugging (no min/concat).  Does not change script/link tags.  Also
+spins up a livereload connect server and opens in the browser.
 
 
 
@@ -21,6 +22,9 @@ Only copies all css/js files to ``./build/`` for easy debugging (no min/concat).
 Outputs all files into ``./build/`` directory with css and js minified and concat and all html files with updated script/link tags
 
 
+``grunt build-serve``
+
+Runs build then statically serves the ``./build/`` directory and opens in the browser.
 
 ##Notes
 

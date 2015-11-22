@@ -1,5 +1,5 @@
 #Hearthstone.gg
 
-#Sup
+#Sup things
 
 Some content with *something* coolish.

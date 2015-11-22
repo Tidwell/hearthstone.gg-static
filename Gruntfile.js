@@ -1,6 +1,8 @@
 var generator = require('./src/site-generator.js');
 
 module.exports = function(grunt) {
+	require('load-grunt-tasks')(grunt);
+
 	//group files to be passed to watching or jshint
 	var jsFiles = ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js', 'assets/js/**/*.js'];
 	var otherFiles = ['content/**/*', 'templates/**/*', 'assets/css/**/*'];
@@ -22,7 +24,12 @@ module.exports = function(grunt) {
 		},
 		watch: {
 			files: allFiles,
-			tasks: ['jshint', 'dev']
+			tasks: ['live-reload-build'],
+			options: {
+				livereload: {
+					host: 'localhost'
+				}
+			}
 		},
 		copy: {
 			// for the dev task we just copy everything from assets into build
@@ -49,7 +56,20 @@ module.exports = function(grunt) {
 						'*.{ico,txt,json}',
 						'images/**/*'
 					]
-				}]
+				},{
+					expand: true,
+					flatten: true,
+					dot: true,
+					cwd: 'assets',
+					dest: 'build/assets/fonts',
+					src: [
+						'bower_components/**/*.{eot,svg,ttf,woff,woff2}'
+					]
+				}
+				/*
+					ADD ADDITIONAL THINGS THAT NEED TO BE COPIED FROM BOWER_COMPONENTS
+				*/
+				]
 			},
 		},
 		// for the build task configure usemin to make sure to find references in all of our generated markup
@@ -66,7 +86,7 @@ module.exports = function(grunt) {
 				src: [
 					'build/assets/js/**/*.js',
 					'build/assets/css/**/*.css',
-					'build/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}'
+					'build/assets/images/**/*.{png,jpg,jpeg,gif,webp,svg}',
 				]
 			}
 		},
@@ -90,17 +110,34 @@ module.exports = function(grunt) {
 			build: ['build'],
 			tmp: ['.tmp']
 		},
+		//connect server used for build-serve and dev tasks
+		connect: {
+			options: {
+				port: 8000,
+				// Change this to '0.0.0.0' to access the server from outside.
+				hostname: 'localhost',
+				livereload: 35729
+			},
+			livereload: {
+				options: {
+					open: true,
+					base: [
+						'build'
+					]
+				}
+			},
+			build: {
+				options: {
+					livereload: false,
+					open: true,
+					keepalive: true,
+					base: [
+						'build'
+					]
+				}
+			}
+		}
 	});
-
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-copy');
-	grunt.loadNpmTasks('grunt-usemin');
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
-	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.loadNpmTasks('grunt-filerev');
-	grunt.loadNpmTasks('grunt-contrib-clean');
 
 	grunt.registerTask('generate-files', function() {
 		var files = 0;
@@ -117,11 +154,13 @@ module.exports = function(grunt) {
 		GRUNT TASKS
 	*/
 
-	//grunt watch is configured above and runs: ['jshint', 'dev']
 
 	grunt.registerTask('default', ['jshint', 'build']);
 
-	grunt.registerTask('dev', ['clean:build', 'generate-files', 'copy:dev', 'clean:tmp']);
+	//grunt watch runs this task whenever a change is detected
+	grunt.registerTask('live-reload-build', ['clean:build', 'generate-files', 'copy:dev', 'clean:tmp']);
+
+	grunt.registerTask('dev', ['clean:build', 'generate-files', 'copy:dev', 'clean:tmp', 'connect:livereload', 'watch']);
 
 	grunt.registerTask('build', [
 		'clean:build',
@@ -134,5 +173,10 @@ module.exports = function(grunt) {
 		'filerev:build',
 		'usemin',
 		'clean:tmp'
+	]);
+
+	grunt.registerTask('build-serve', [
+		'build',
+		'connect:build'
 	]);
 };
