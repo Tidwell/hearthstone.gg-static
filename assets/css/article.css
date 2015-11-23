@@ -1,0 +1,14 @@
+.article h1+hr {
+	margin-bottom: 2em;
+}
+.article h1 {
+	text-shadow: none;
+	font-weight: bold;
+	font-size: 2.5em;
+}
+
+.article iframe {
+	max-width: 100%;
+	display: block;
+	margin: 2em auto;
+}
