@@ -1,7 +1,7 @@
-.article h1+hr {
+.article .main-content h1+hr {
 	margin-bottom: 2em;
 }
-.article h1 {
+.article .main-content  h1 {
 	text-shadow: none;
 	font-weight: bold;
 	font-size: 2.5em;
