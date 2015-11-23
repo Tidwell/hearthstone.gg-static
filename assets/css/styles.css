@@ -12,7 +12,14 @@ h1 {
 h1, h2 {
 	font-family: 'Jim Nightshade', cursive;
 }
+a {
+	color: rgba(85,155,155,1);
+}
 
+.index h2 {
+	font-weight: bold;
+	font-size: 2.5em;
+}
 .index .main-content ul {
 	padding: 0;
 	margin: 0;
@@ -24,9 +31,11 @@ h1, h2 {
 .index .main-content ul li a {
 	color: #3d3d3d;
 	font-size: 1.5em;
-	text-decoration: underline;
+	text-decoration: none;
+	transition: color .125s ease-in-out, border-bottom .125s ease-in-out;
 }
 .index .main-content ul li a:hover {
+	border-bottom: 2px solid;
 	color: rgba(85,155,155,1);
 }
 
@@ -36,6 +45,7 @@ h1, h2 {
 
 .article h1 {
 	text-shadow: none;
+	font-weight: bold;
 }
 
 .article iframe {
