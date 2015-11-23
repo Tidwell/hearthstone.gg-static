@@ -2,7 +2,11 @@
 {
 	"title": "GDC Video - Hearthstone: How to Create an Immersive User Interface",
 	"type": "article",
-	"template": "templates/article.hbs"
+	"template": "templates/article.hbs",
+	"author": "Tidwell",
+	"date": "1448235748590",
+	"category": "Design Videos",
+	"description": "Derek Sakamota's 2015 GDC talk about designing the Hearthstone UI.  Video and analysis."
 }
 
 ---

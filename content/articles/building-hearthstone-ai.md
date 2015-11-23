@@ -2,7 +2,11 @@
 {
 	"title": "GDC Video - Building the AI for Hearthstone",
 	"type": "article",
-	"template": "templates/article.hbs"
+	"template": "templates/article.hbs",
+	"author": "Tidwell",
+	"date": "1448235748590",
+	"category": "Design Videos",
+	"description": "Brian Schwab's 2014 GDC talk about designing the Hearthstone AI.  Video, slides, and analysis."
 }
 
 ---

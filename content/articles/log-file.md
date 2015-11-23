@@ -2,7 +2,11 @@
 {
 	"title": "Deep Dive into the Hearthstone Log File",
 	"type": "article",
-	"template": "templates/article.hbs"
+	"template": "templates/article.hbs",
+	"author": "Tidwell",
+	"date": "1448235748590",
+	"category": "Game Internals",
+	"description": "An analysis of the hearthstone log file, the format, output, and tools for working with the logs."
 }
 
 ---

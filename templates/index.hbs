@@ -1,5 +1,5 @@
 {{> header }}
-<div class="container-fluid">
+<div class="container-fluid index">
 	<div class="row">
 		{{> sidebar }}
 		<section class="col-md-8 col-sm-12 col-md-offset-4 main-content">
@@ -9,7 +9,15 @@
 			<ul>
 			{{#each allDocs}}
 				{{#if isArticle}}
-					<li><a href="/{{ this.path }}" />{{ this.title }}</a></li>
+					<li>
+						<a href="/{{ this.path }}" />{{ this.title }}</a>
+						<p>
+							{{ description }}
+						</p>
+						<div class="meta">
+							<span> {{ author }} </span> in <span> {{ category }} </span> - <span> {{ formatDate date day="numeric" month="short" year="numeric" }} </span>
+						</div>
+					</li>
 				{{/if}}
 			{{/each}}
 			</ul>
