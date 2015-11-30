@@ -6,6 +6,10 @@
 			<h1>{{ title }}</h1>
 			<hr />
 			{{{ body }}}
+
+			<div class="meta">
+				<span> {{ author }} </span> in <span> <a href="/categories#{{hashify category}}">{{ category }}</a> </span> {{#if date}} - <span> {{ formatDate date day="numeric" month="short" year="numeric" }} </span> {{/if}}
+			</div>
 		</section>
 	</div>
 </div>
