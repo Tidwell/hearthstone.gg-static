@@ -89,3 +89,15 @@ hr {
 .main-content .article-list li:last-child hr {
 	display: none;
 }
+
+.social-buttons {
+	margin-bottom: 2em;
+	text-align: center;
+}
+@media (min-width: 992px) {
+	.social-buttons {
+		max-width: 60%;
+		text-align: right;
+		padding-right: 1.5em;
+	}
+}
