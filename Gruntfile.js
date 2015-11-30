@@ -151,6 +151,7 @@ module.exports = function(grunt) {
 
 		gen.addTransformationAfter('destinationFiles', 'document-info-aggregator', userTransforms.documentInfoAggregator);
 		gen.addTransformationBefore('template', 'clean-url', userTransforms.cleanUrl);
+		gen.addTransformationBefore('template', 'categories', userTransforms.categories);
 
 		//create files
 		gen.generate(function(str){grunt.log.ok(str);});

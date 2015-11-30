@@ -5,7 +5,7 @@
 		<section class="col-md-8 col-sm-12 col-md-offset-4 main-content">
 			{{{ body }}}
 			<hr />
-			<ul>
+			<ul class="article-list">
 			{{#each allDocs}}
 				{{#if isArticle}}
 					<li>
@@ -14,13 +14,14 @@
 							{{ description }}
 						</p>
 						<div class="meta">
-							<span> {{ author }} </span> in <span> {{ category }} </span> - <span> {{ formatDate date day="numeric" month="short" year="numeric" }} </span>
+							<span> {{ author }} </span> in <span> <a href="/categories#{{hashify category}}">{{ category }}</a> </span> - <span> {{ formatDate date day="numeric" month="short" year="numeric" }} </span>
 						</div>
 						<hr class="stub" />
 					</li>
 				{{/if}}
 			{{/each}}
 			</ul>
+			{{json allCategories}}
 			<!--
 			{{json allDocs}}
 			-->

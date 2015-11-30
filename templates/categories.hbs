@@ -1,0 +1,36 @@
+{{> header }}
+<div class="container-fluid categories">
+	<div class="row">
+		{{> sidebar }}
+		<section class="col-md-8 col-sm-12 col-md-offset-4 main-content">
+			{{{ body }}}
+			<ul>
+				{{#each allCategories}}
+				<li><a href="#{{hashify this}}">{{this}}</a></li>
+				{{/each}}
+			</ul>
+
+			<hr />
+			<br />
+			{{#each allCategories}}
+				<a name="{{hashify this}}"></a>
+				<h3>{{this}}</h3>
+				<ul class="article-list">
+					{{#each ../allDocs}}
+						{{#if (isCategory category ../this) }}
+						
+							<li>
+								<a href="/{{ this.path }}" />{{ this.title }}</a>
+								<p>
+									{{ description }}
+								</p>
+								<hr class="stub" />
+							</li>
+						{{/if}}	
+					{{/each}}
+				</ul>
+			{{/each}}
+		</section>
+	</div>
+</div>
+{{> footer }}

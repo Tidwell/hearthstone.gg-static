@@ -1,0 +1,19 @@
+.categories h2+hr {
+	margin-bottom: 2em;
+}
+.categories h2 {
+	font-weight: bold;
+	font-size: 2.5em;
+}
+.categories h3 {
+	font-size: 2em;
+	text-decoration: underline;
+	margin-bottom: 1em;
+}
+.categories .article-list li a {
+	color: #3d3d3d;
+	font-size: 1.2em;
+}
+.categories .article-list {
+	margin-bottom: 5em;
+}
