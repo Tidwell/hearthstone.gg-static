@@ -150,9 +150,10 @@ module.exports = function(grunt) {
 		var userTransforms = require('./src/transforms');
 
 		gen.addTransformationAfter('destinationFiles', 'document-info-aggregator', userTransforms.documentInfoAggregator);
+		gen.addTransformationBefore('template', 'clean-url', userTransforms.cleanUrl);
 
 		//create files
-		gen.generate();
+		gen.generate(function(str){grunt.log.ok(str);});
 		grunt.log.ok(gen.documents.length + ' files generated for build');
 	});
 

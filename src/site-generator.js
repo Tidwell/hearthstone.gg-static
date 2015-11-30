@@ -72,9 +72,10 @@ SiteGenerator.prototype.addTransformationAfter = function(after, name, transform
 };
 
 //runs all the transform functions on the documents
-SiteGenerator.prototype.generate = function() {
+SiteGenerator.prototype.generate = function(logger) {
 	var self = this;
 	this.transformations.forEach(function(transform){
+		if (logger) { logger('running '+transform); }
 		if (self.transformFunctions[transform]) {
 			self.transformFunctions[transform].apply(self);
 		}
@@ -164,7 +165,14 @@ SiteGenerator.prototype.transformFunctions.destinationFiles = function() {
 SiteGenerator.prototype.transformFunctions.writeFiles = function() {
 	var self = this;
 	this.documents.forEach(function(document) {
-		self.grunt.file.write(document.outputPath, document.markup);
+		if (typeof document.outputPath == 'string') {
+			self.grunt.file.write(document.outputPath, document.markup);
+		}
+		if (Array.isArray(document.outputPath)) {
+			document.outputPath.forEach(function(path){
+				self.grunt.file.write(path, document.markup);	
+			});
+		}
 	});
 };
 
