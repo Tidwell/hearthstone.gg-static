@@ -18,6 +18,6 @@ then
 	grunt build;
 	echo 'Build Done.';
 	echo 'Syncing Files to remote server...';
-	rsync -a build/ aarontidwell@scrollstoolbox.com:/www/hearthstone.gg-static;
+	rsync -a build/ aarontidwell@scrollstoolbox.com:/www/hearthstone.gg-static --delete;
 	echo 'Deploy Done.';
 fi
