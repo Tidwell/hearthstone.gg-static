@@ -15,6 +15,7 @@ module.exports = function() {
 		});
 	});
 	self.documents.forEach(function(doc){
+		doc.data.path = doc.outputPath.replace(self.buildPath, '');
 		if (doc.data.date) { doc.data.date = Date(doc.data.date); }
 		if (!doc.data.transforms || doc.data.transforms.indexOf('allDocs') === -1) { return; }
 		doc.data.allDocs = docList;
