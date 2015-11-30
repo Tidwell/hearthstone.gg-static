@@ -81,6 +81,11 @@ hr {
 	margin-left: 2.25em;
 }
 
+.main-content .article-list li .meta a {
+	color: #b6b6b6;
+	font-weight: 500;
+}
+
 .main-content .article-list li:last-child hr {
 	display: none;
 }
