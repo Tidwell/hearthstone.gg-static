@@ -136,3 +136,9 @@ hr {
 [data-show-comments]:hover {
 	color: #3d3d3d;
 }
+
+noscript {
+	margin-bottom: 2em;
+	display: block;
+	text-align: center;
+}
