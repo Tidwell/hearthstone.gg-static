@@ -1,4 +1,5 @@
 {
+	"title": "categories",
 	"template": "templates/categories.hbs",
 	"transforms": ["allCategories", "allDocs"]
 }

@@ -1,11 +1,11 @@
 {
-	"title": "About",
+	"title": "about",
 	"template": "templates/page.hbs"
 }
 
 ---
 
-About
+about
 --
 
 ***
