@@ -8,10 +8,10 @@
 			{{{ body }}}
 
 			<div class="meta">
-				<span> {{ author }} </span> in <span> <a href="/categories#{{hashify category}}">{{ category }}</a> </span> {{#if date}} - <span> {{ formatDate date day="numeric" month="short" year="numeric" }} </span> {{/if}}
+				<span> {{ author }} </span> in <span> <a href="/categories#{{hashify category}}">{{>icons}}{{ category }}</a> </span> {{#if date}} - <span> {{ formatDate date day="numeric" month="short" year="numeric" }} </span> {{/if}}
 			</div>
 
-			<button data-show-comments style="display: none">Show Comments</button>
+			<button data-show-comments style="display: none"><i class="fa fa-comments-o"></i> Show Comments</button>
 			<div id="disqus_thread"></div>
 			<script>
 				//https://hearthstonegg.disqus.com/admin/settings/universalcode/

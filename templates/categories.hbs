@@ -4,9 +4,9 @@
 		{{> sidebar }}
 		<section class="col-md-8 col-sm-12 col-md-offset-4 main-content">
 			{{{ body }}}
-			<ul>
+			<ul class="category-list">
 				{{#each allCategories}}
-				<li><a href="#{{hashify this}}">{{this}}</a></li>
+				<li><a href="#{{hashify this}}">{{>icons}} {{this}}</a></li>
 				{{/each}}
 			</ul>
 
@@ -14,7 +14,7 @@
 			<br />
 			{{#each allCategories}}
 				<a name="{{hashify this}}"></a>
-				<h3>{{this}}</h3>
+				<h3>{{>icons}}{{this}}</h3>
 				<ul class="article-list">
 					{{#each ../allDocs}}
 						{{#if (isCategory category ../this) }}

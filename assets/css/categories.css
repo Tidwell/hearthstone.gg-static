@@ -5,9 +5,16 @@
 	font-weight: bold;
 	font-size: 2.5em;
 }
+.categories ul.category-list {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+.categories ul.category-list li a:hover {
+	text-decoration: none;
+}
 .categories h3 {
 	font-size: 2em;
-	text-decoration: underline;
 	margin-bottom: 1em;
 }
 .categories .article-list li a {

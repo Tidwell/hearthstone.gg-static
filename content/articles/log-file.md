@@ -11,7 +11,7 @@
 
 ---
 
-Blizzard has repeatedly said that any modification of the Hearthstone game client is a violation of the Terms of Service.  If you are a developer of hearthstone-related software, this is a big problem for developing new and interesting tools that interact with the game.  However, there is a fairly well-known data source that the vast majority of deck trackers, game loggers, replay generators, and arena recommendation engines make use of - the Hearthstone log file.  Much of this information comes from a [reddit post by Flipperbw][1]
+Blizzard has repeatedly said that any modification of the Hearthstone game client is a violation of the Terms of Service.  If you are a developer of hearthstone-related software, this is a big problem for developing new and interesting tools that interact with the game.  However, there is a fairly well-known data source that the vast majority of deck trackers, game loggers, replay generators, and arena recommendation engines make use of - the Hearthstone log file.  Much of this information comes from a [reddit post by Flipperbw][1].
 
 Enabling logging is pretty straightforward, you probably already have it enabled if you have ever used a deck tracker or similar software.  To enable logging, navigate to your Application Data Directory:
 

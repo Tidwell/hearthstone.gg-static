@@ -58,13 +58,18 @@ hr {
 	margin: 0 0 2em 0;
 }
 
-.main-content .article-list li > a {
+.main-content .article-list li > a,
+.main-content .article-list li > i {
 	color: #3d3d3d;
 	font-size: 1.5em;
 	line-height: 1.25em;
 	margin-bottom: .5em;
 	display: block;
 	transition: color .125s ease-in-out;
+}
+.main-content .article-list li > i {
+	float: right;
+	margin: 1em;
 }
 
 .main-content .article-list li a:hover {
@@ -81,9 +86,14 @@ hr {
 	margin-left: 2.25em;
 }
 
-.main-content .article-list li .meta a {
+.main-content .meta a {
 	color: #b6b6b6;
 	font-weight: 500;
+}
+.main-content .meta a:hover {
+	color: rgba(85,155,155,1);
+	font-weight: 500;
+	text-decoration: none;
 }
 
 .main-content .article-list li:last-child hr {
@@ -122,4 +132,7 @@ hr {
 	padding: 1em;
 	font-size: 1.5em;
 	margin-bottom: 2em;
+}
+[data-show-comments]:hover {
+	color: #3d3d3d;
 }

@@ -1,0 +1,19 @@
+{{#if (isCategory 'Design Videos' this) }}
+<i class="fa fa-video-camera"></i>
+{{/if}}
+{{#if (isCategory 'Game Internals' this) }}
+<i class="fa fa-database"></i>
+{{/if}}
+{{#if (isCategory 'Developer Resources' this) }}
+<i class="fa fa-code"></i>
+{{/if}}
+
+{{#if (isCategory 'Design Videos' this.category) }}
+<i class="fa fa-video-camera"></i>
+{{/if}}
+{{#if (isCategory 'Game Internals' this.category) }}
+<i class="fa fa-database"></i>
+{{/if}}
+{{#if (isCategory 'Developer Resources' this.category) }}
+<i class="fa fa-code"></i>
+{{/if}}
