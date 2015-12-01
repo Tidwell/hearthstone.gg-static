@@ -17,6 +17,19 @@
 	position: absolute;
 	left: 2em;
 	top: 2em;
+	background: #3d3d3d;
+    color: black;
+    border: none;
+    box-shadow: -2px -2px 0px black;
+}
+.sidebar .menu-trigger:hover,
+.sidebar .menu-trigger:active {
+	color: rgba(85,155,155,1);
+    border: none;
+    box-shadow: -2px -2px 0px rgba(85,155,155,1);
+}
+.sidebar .menu-trigger:active {
+	background: black;	
 }
 
 .sidebar .menu {
