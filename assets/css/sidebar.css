@@ -20,16 +20,18 @@
 	background: #3d3d3d;
     color: black;
     border: none;
-    box-shadow: -2px -2px 0px black;
+    opacity: .8;
 }
 .sidebar .menu-trigger:hover,
 .sidebar .menu-trigger:active {
-	color: rgba(85,155,155,1);
+	opacity: .8;
+	color: rgba(85,155,155,.8);
     border: none;
-    box-shadow: -2px -2px 0px rgba(85,155,155,1);
+
 }
 .sidebar .menu-trigger:active {
-	background: black;	
+	background: rgba(0,0,0,.8);
+	opacity: 1;
 }
 
 .sidebar .menu {
