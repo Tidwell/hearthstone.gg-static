@@ -58,6 +58,11 @@ module.exports = function(grunt) {
 						'images/**/*'
 					]
 				},{
+					dest: 'build/.htaccess',
+					src: [
+						'assets/.htaccess'
+					]
+				},{
 					expand: true,
 					flatten: true,
 					dot: true,
