@@ -1,5 +1,5 @@
 .sidebar {
-	background-image: url('/assets/images/sidebar-mobile.png');
+	background-image: url('/assets/images/sidebar-mobile.jpg');
 	background-repeat: no-repeat;
 	background-position: bottom;
 	background-size: cover;
@@ -94,7 +94,7 @@
 	    position: fixed;
 	    background-size: cover;
 	    box-shadow: 3px 0 10px #888888;
-	    background-image: url('/assets/images/sidebar-bg.png');
+	    background-image: url('/assets/images/sidebar-bg.jpg');
 	    background-repeat: no-repeat;
 	}
 	.sidebar .menu li {
