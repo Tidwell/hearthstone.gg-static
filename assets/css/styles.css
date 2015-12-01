@@ -93,11 +93,22 @@ hr {
 .social-buttons {
 	margin-bottom: 2em;
 	text-align: center;
+	color: #3d3d3d;
+}
+.social-buttons span:not(.share) {
+	display: none;
+}
+.social-buttons .share {
+	margin: 0 .5em;
 }
 @media (min-width: 992px) {
 	.social-buttons {
 		max-width: 60%;
 		text-align: right;
 		padding-right: 1.5em;
+	}
+	.social-buttons span:not(.share) {
+		display: inline-block;
+		font-weight: bold;
 	}
 }
