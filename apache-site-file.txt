@@ -1,0 +1,17 @@
+<VirtualHost *>
+  ServerName hearthstone.gg
+  ServerAlias www.hearthstone.gg
+
+  ErrorDocument 404 /404/index.html
+  DocumentRoot /www/hearthstone.gg-static
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride None
+        </Directory>
+        <Directory /var/hearthstone.gg-static/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride None
+                Order allow,deny
+                allow from all
+        </Directory>
+</VirtualHost>
