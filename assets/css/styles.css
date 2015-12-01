@@ -112,3 +112,14 @@ hr {
 		font-weight: bold;
 	}
 }
+
+[data-show-comments] {
+	width: 100%;
+	background: rgba(0,0,0,.5);
+	color: white;
+	font-weight: bold;
+	border: none;
+	padding: 1em;
+	font-size: 1.5em;
+	margin-bottom: 2em;
+}
