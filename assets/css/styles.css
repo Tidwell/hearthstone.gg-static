@@ -142,3 +142,7 @@ noscript {
 	display: block;
 	text-align: center;
 }
+
+i.fa-code {
+	font-weight: bold;
+}
