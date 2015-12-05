@@ -6,7 +6,7 @@
 	"author": "Tidwell",
 	"date": "1414281600000",
 	"category": "Design Videos",
-	"description": "Brian Schwab's 2014 GDC talk about building the Hearthstone AI.  Video, slides, and analysis."
+	"description": "Brian Schwab's 2014 GDC talk about building the Hearthstone AI."
 }
 
 ---

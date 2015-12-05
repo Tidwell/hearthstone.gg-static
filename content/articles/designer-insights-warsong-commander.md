@@ -6,7 +6,7 @@
 	"author": "Tidwell",
 	"date": "1444867200000",
 	"category": "Design Videos",
-	"description": "Ben Brode's Designer Insights video #2, focusing on how Blizzard releases new content.  Video, and analysis."
+	"description": "Ben Brode's Designer Insights video #2, focusing on the change to Warsong Commander."
 }
 
 ---
