@@ -20,10 +20,8 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-filerev": "^2.3.1",
     "grunt-usemin": "^3.1.1",
-    "handlebars": "^4.0.5",
     "handlebars-intl": "^1.1.1",
-    "load-grunt-tasks": "^3.3.0",
-    "marked": "^0.3.5"
+    "load-grunt-tasks": "^3.3.0"
   },
   "devDependencies": {},
   "scripts": {

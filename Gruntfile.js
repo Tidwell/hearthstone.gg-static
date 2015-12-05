@@ -145,7 +145,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('generate-files', function() {
 		var done = this.async();
 		/* Config */
-		var handlebarsHelpers = require('./src/handlebars-helpers');
 		sitePackage.config(function(writeFilesProcessor){
 			writeFilesProcessor.outputFolder = path.resolve(process.cwd(), './build');
 		});
@@ -167,7 +166,7 @@ module.exports = function(grunt) {
 		});
 		sitePackage.config(function(templateEngine){
 			templateEngine.partialsFolder = 'templates/partials/';
-			templateEngine.helpers = templateEngine.helpers.concat(handlebarsHelpers);
+			templateEngine.helpers = templateEngine.helpers.concat(require('./src/handlebars-helpers'));
 		});
 		/* Run */
 		var dgeni = new Dgeni([sitePackage]);
