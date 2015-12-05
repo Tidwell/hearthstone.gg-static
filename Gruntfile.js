@@ -150,22 +150,6 @@ module.exports = function(grunt) {
 			grunt.log.ok(docs.length + ' files generated for build');
 			done();
 		});
-
-		// var gen = generator.createGenerator(grunt, buildPath, defaultTemplate);
-
-		// //add all the files to the generator
-		// gen.addFiles(contentFiles);
-
-		// //add custom transforms
-		// var userTransforms = require('./src/transforms');
-
-		// gen.addTransformationAfter('destinationFiles', 'document-info-aggregator', userTransforms.documentInfoAggregator);
-		// gen.addTransformationBefore('template', 'clean-url', userTransforms.cleanUrl);
-		// gen.addTransformationBefore('template', 'categories', userTransforms.categories);
-
-		// //create files
-		// gen.generate(function(str){grunt.log.ok(str);});
-		// grunt.log.ok(gen.documents.length + ' files generated for build');
 	});
 
 	/*

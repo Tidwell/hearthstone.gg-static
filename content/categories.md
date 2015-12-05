@@ -1,7 +1,6 @@
 {
 	"title": "categories",
-	"template": "categories",
-	"transforms": ["allCategories", "allDocs"]
+	"template": "categories"
 }
 ---
 
