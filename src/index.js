@@ -6,7 +6,7 @@ var staticGuideDgeniPackage = require('static-generator');
 /* Load the processor to create the custom 'data' object we want */
 var allDocsProcessor = require('./processors/all-docs');
 var allCategoriesProcessor = require('./processors/all-categories');
-var metadataPostProcessor = require('./processors/metadata');
+var metadataPostProcessor = require('./processors/metadata-post');
 var cleanUrlsProcessor = require('./processors/clean-urls');
 
 /* Load our custom handlebars helpers*/

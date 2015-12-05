@@ -1,7 +1,7 @@
 /**
  * @dgProcessor metadataPostProcessor
  * @description
- * process doc content for markdown
+ * after the metadata is added to a document we want to clean it up a bit
  */
 module.exports = function metadataPostProcessor(writeFilesProcessor) {
 	return {

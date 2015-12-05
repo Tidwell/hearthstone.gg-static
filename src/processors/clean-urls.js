@@ -1,7 +1,7 @@
 /**
  * @dgProcessor cleanUrlsProcessor
  * @description
- * process doc content for markdown
+ * cleans urls, basically just nests everything that isnt a index.html file down a level
  */
 module.exports = function cleanUrlsProcessor(renderDocsProcessor, writeFilesProcessor) {
 	return {

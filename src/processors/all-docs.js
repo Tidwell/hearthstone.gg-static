@@ -1,7 +1,7 @@
 /**
  * @dgProcessor allDocsProcessor
  * @description
- * process doc content for markdown
+ * process all docs to attach a allDocs property to extraData on the renderDocsProcessor
  */
 module.exports = function allDocsProcessor(writeFilesProcessor, renderDocsProcessor) {
 	return {
