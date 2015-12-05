@@ -1,5 +1,6 @@
 var sitePackage = require('./src');
 var Dgeni = require('dgeni');
+var path = require('canonical-path');
 
 module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
@@ -143,6 +144,31 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('generate-files', function() {
 		var done = this.async();
+		/* Config */
+		var handlebarsHelpers = require('./src/handlebars-helpers');
+		sitePackage.config(function(writeFilesProcessor){
+			writeFilesProcessor.outputFolder = path.resolve(process.cwd(), './build');
+		});
+
+		sitePackage.config(function(readFilesProcessor) {
+			readFilesProcessor.basePath = './';
+			readFilesProcessor.sourceFiles = [{
+				include: 'content/**/*',
+				basePath: 'content'
+			}];
+		});
+
+		sitePackage.config(function(templateFinder){
+			templateFinder.templateFolders.unshift('templates/');
+			templateFinder.templatePatterns.unshift('index.hbs');
+			templateFinder.templatePatterns.unshift('${ doc.metadata.template }.hbs');
+			
+
+		});
+		sitePackage.config(function(templateEngine){
+			templateEngine.partialsFolder = 'templates/partials/';
+			templateEngine.helpers = templateEngine.helpers.concat(handlebarsHelpers);
+		});
 		/* Run */
 		var dgeni = new Dgeni([sitePackage]);
 
