@@ -161,8 +161,6 @@ module.exports = function(grunt) {
 			templateFinder.templateFolders.unshift('templates/');
 			templateFinder.templatePatterns.unshift('index.hbs');
 			templateFinder.templatePatterns.unshift('${ doc.metadata.template }.hbs');
-			
-
 		});
 		sitePackage.config(function(templateEngine){
 			templateEngine.partialsFolder = 'templates/partials/';
