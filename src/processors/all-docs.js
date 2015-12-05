@@ -1,24 +1,25 @@
 /**
- * @dgProcessor contentMarkdownProcessor
+ * @dgProcessor allDocsProcessor
  * @description
  * process doc content for markdown
  */
-module.exports = function allDocs(writeFilesProcessor, renderDocsProcessor) {
+module.exports = function allDocsProcessor(writeFilesProcessor, renderDocsProcessor) {
 	return {
 		$runAfter: ['splitContentProcessor'],
 		$runBefore: ['renderDocsProcessor'],
 		$process: function(docs) {
 			var docList = [];
 			docs.forEach(function(doc){
+				var metadata = doc.metadata;
 				docList.push({
-					title: doc.data.title,
+					title: metadata.title,
 					outputPath: doc.outputPath,
-					path: doc.path || '/',
-					isArticle: doc.data.type === 'article' ? true : false,
-					category: doc.data.category,
-					author: doc.data.author,
-					description: doc.data.description,
-					date: doc.data.date
+					webPath: doc.webPath || '/',
+					isArticle: metadata.type === 'article' ? true : false,
+					category: metadata.category,
+					author: metadata.author,
+					description: metadata.description,
+					date: metadata.date
 				});
 			});
 

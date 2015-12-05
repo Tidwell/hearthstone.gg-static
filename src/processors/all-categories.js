@@ -1,4 +1,4 @@
-module.exports = function allCategories(renderDocsProcessor) {
+module.exports = function allCategoriesProcessor(renderDocsProcessor) {
 	return {
 		$runAfter: ['splitContentProcessor'],
 		$runBefore: ['renderDocsProcessor'],
@@ -6,12 +6,13 @@ module.exports = function allCategories(renderDocsProcessor) {
 			var self = this;
 			var categories = [];
 			docs.forEach(function(doc){
-				var docCategory = doc.data.category;
+				var metadata = doc.metadata;
+				var docCategory = metadata.category;
 
-				if (!doc.data.categories) { doc.data.categories = {}; }
+				if (!metadata.categories) { metadata.categories = {}; }
 				
 				if (docCategory && categories.indexOf(docCategory) === -1) {
-					doc.data.categories[docCategory] = true;
+					metadata.categories[docCategory] = true;
 					categories.push(docCategory);
 				}
 			});

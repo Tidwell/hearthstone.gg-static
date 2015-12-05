@@ -6,27 +6,29 @@ var staticGuideDgeniPackage = require('static-generator');
 /* Load the processor to create the custom 'data' object we want */
 var allDocsProcessor = require('./processors/all-docs');
 var allCategoriesProcessor = require('./processors/all-categories');
-var metadataDateProcessor = require('./processors/metadata-date');
+var metadataPostProcessor = require('./processors/metadata');
+var cleanUrlsProcessor = require('./processors/clean-urls');
 
 /* Load our custom handlebars helpers*/
 var handlebarsHelpers = require('./handlebars-helpers');
 
 /* Create the package for the site generator */
-var testSitePackage = new Dgeni.Package('testSitePackage', [
+var site = new Dgeni.Package('site', [
 	staticGuideDgeniPackage
 ]);
 
 //add our custom processors to the site package
-testSitePackage.processor(allDocsProcessor);
-testSitePackage.processor(allCategoriesProcessor);
-testSitePackage.processor(metadataDateProcessor);
+site.processor(allDocsProcessor);
+site.processor(allCategoriesProcessor);
+site.processor(metadataPostProcessor);
+site.processor(cleanUrlsProcessor);
 
 /* Config */
-testSitePackage.config(function(writeFilesProcessor){
+site.config(function(writeFilesProcessor){
 	writeFilesProcessor.outputFolder = path.resolve(process.cwd(), './build');
 });
 
-testSitePackage.config(function(readFilesProcessor) {
+site.config(function(readFilesProcessor) {
 	readFilesProcessor.basePath = './';
 	readFilesProcessor.sourceFiles = [{
 		include: 'content/**/*',
@@ -34,16 +36,19 @@ testSitePackage.config(function(readFilesProcessor) {
 	}];
 });
 
-testSitePackage.config(function(templateFinder){
+site.config(function(templateFinder){
 	templateFinder.templateFolders.unshift('templates/');
 	templateFinder.templatePatterns.unshift('index.hbs');
-	templateFinder.templatePatterns.unshift('${ doc.data.template }.hbs');
+	templateFinder.templatePatterns.unshift('${ doc.metadata.template }.hbs');
 	
 
 });
-testSitePackage.config(function(templateEngine){
+site.config(function(templateEngine){
 	templateEngine.partialsFolder = 'templates/partials/';
 	templateEngine.helpers = templateEngine.helpers.concat(handlebarsHelpers);
 });
+// site.config(function(checkAnchorLinksProcessor){
+// //	checkAnchorLinksProcessor.ignoredLinks.push(/^\//ig);
+// });
 
-module.exports = testSitePackage;
+module.exports = site;

@@ -1,4 +1,4 @@
-var sitePackage = require('./src/site-generator.js');
+var sitePackage = require('./src');
 var Dgeni = require('dgeni');
 
 module.exports = function(grunt) {
