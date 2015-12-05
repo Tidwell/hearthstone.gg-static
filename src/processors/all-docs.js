@@ -23,6 +23,15 @@ module.exports = function allDocsProcessor(writeFilesProcessor, renderDocsProces
 				});
 			});
 
+			//sort by date descending
+			docList.sort(function compare(a, b) {
+				if (a.date > b.date)
+					return -1;
+				if (a.date < b.date)
+					return 1;
+				return 0;
+			});
+
 			renderDocsProcessor.extraData.allDocs = docList;
 		}
 	};
