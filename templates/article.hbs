@@ -3,21 +3,23 @@
 	<div class="row">
 		{{> sidebar }}
 		<section class="col-md-8 col-sm-12 col-md-offset-4 main-content">
-			<h1>{{ title }}</h1>
+			<h1>{{ doc.data.title }}</h1>
 			<hr />
-			{{{ body }}}
+			{{{ doc.fileInfo.content }}}
 
+			{{#with doc.data}}
 			<div class="meta">
 				<span> {{ author }} </span> in <span> <a href="/categories#{{hashify category}}">{{>icons}}{{ category }}</a> </span> {{#if date}} - <span> {{ formatDate date day="numeric" month="short" year="numeric" }} </span> {{/if}}
 			</div>
+			{{/with}}
 
 			<button data-show-comments style="display: none"><i class="fa fa-comments-o"></i> Show Comments</button>
 			<div id="disqus_thread"></div>
 			<script>
 				//https://hearthstonegg.disqus.com/admin/settings/universalcode/
 				var disqus_config = function () {
-					this.page.url = 'http://www.hearthstone.gg/{{ path }}';
-					this.page.identifier = '{{ path }}';
+					this.page.url = 'http://www.hearthstone.gg{{ doc.path }}';
+					this.page.identifier = '{{ hashify doc.id }}';
 				};
 			</script>
 			<noscript>

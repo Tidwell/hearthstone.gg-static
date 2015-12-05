@@ -2,7 +2,7 @@
 {
 	"title": "Hearthstone Data Resources",
 	"type": "article",
-	"template": "templates/article.hbs",
+	"template": "article",
 	"author": "Tidwell",
 	"date": "1448305145453",
 	"category": "Developer Resources",

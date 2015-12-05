@@ -2,7 +2,7 @@
 {
 	"title": "GDC Video - Hearthstone: How to Create an Immersive User Interface",
 	"type": "article",
-	"template": "templates/article.hbs",
+	"template": "article",
 	"author": "Tidwell",
 	"date": "1448235748590",
 	"category": "Design Videos",

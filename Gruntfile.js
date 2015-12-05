@@ -1,4 +1,5 @@
-var generator = require('./src/site-generator.js');
+var sitePackage = require('./src/site-generator.js');
+var Dgeni = require('dgeni');
 
 module.exports = function(grunt) {
 	require('load-grunt-tasks')(grunt);
@@ -141,21 +142,30 @@ module.exports = function(grunt) {
 	});
 
 	grunt.registerTask('generate-files', function() {
-		var gen = generator.createGenerator(grunt, buildPath, defaultTemplate);
+		var done = this.async();
+		/* Run */
+		var dgeni = new Dgeni([sitePackage]);
 
-		//add all the files to the generator
-		gen.addFiles(contentFiles);
+		dgeni.generate().then(function(docs) {
+			grunt.log.ok(docs.length + ' files generated for build');
+			done();
+		});
 
-		//add custom transforms
-		var userTransforms = require('./src/transforms');
+		// var gen = generator.createGenerator(grunt, buildPath, defaultTemplate);
 
-		gen.addTransformationAfter('destinationFiles', 'document-info-aggregator', userTransforms.documentInfoAggregator);
-		gen.addTransformationBefore('template', 'clean-url', userTransforms.cleanUrl);
-		gen.addTransformationBefore('template', 'categories', userTransforms.categories);
+		// //add all the files to the generator
+		// gen.addFiles(contentFiles);
 
-		//create files
-		gen.generate(function(str){grunt.log.ok(str);});
-		grunt.log.ok(gen.documents.length + ' files generated for build');
+		// //add custom transforms
+		// var userTransforms = require('./src/transforms');
+
+		// gen.addTransformationAfter('destinationFiles', 'document-info-aggregator', userTransforms.documentInfoAggregator);
+		// gen.addTransformationBefore('template', 'clean-url', userTransforms.cleanUrl);
+		// gen.addTransformationBefore('template', 'categories', userTransforms.categories);
+
+		// //create files
+		// gen.generate(function(str){grunt.log.ok(str);});
+		// grunt.log.ok(gen.documents.length + ' files generated for build');
 	});
 
 	/*

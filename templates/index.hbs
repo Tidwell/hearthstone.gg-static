@@ -3,13 +3,13 @@
 	<div class="row">
 		{{> sidebar }}
 		<section class="col-md-8 col-sm-12 col-md-offset-4 main-content">
-			{{{ body }}}
+			{{{ doc.fileInfo.content }}}
 			<hr />
 			<ul class="article-list">
 			{{#each allDocs}}
 				{{#if isArticle}}
 					<li>
-						<a href="/{{ this.path }}" />
+						<a href="{{ this.path }}" />
 							{{ this.title }}
 						</a>
 						<p>

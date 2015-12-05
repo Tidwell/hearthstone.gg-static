@@ -1,6 +1,6 @@
 {
 	"title": "about",
-	"template": "templates/page.hbs"
+	"template": "page"
 }
 
 ---
