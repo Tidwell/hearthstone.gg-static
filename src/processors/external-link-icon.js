@@ -12,7 +12,6 @@ module.exports = function externalLinkProcessor(writeFilesProcessor) {
 			docs.forEach(function(doc){
 				var domDoc = jsdom.jsdom(doc.fileInfo.content);
 				var links = domDoc.defaultView.document.querySelectorAll('a');
-				console.log(links);
 				[].forEach.call(links, function(link) {
 					var linkHref = link.href;
 					if (linkHref.indexOf('http') > -1) {
