@@ -7,3 +7,4 @@ build/
 .tmp
 assets/bower_components
 todo.txt
+*.psd
