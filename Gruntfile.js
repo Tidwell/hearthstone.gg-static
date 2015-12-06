@@ -42,6 +42,15 @@ module.exports = function(grunt) {
 						expand: true,
 						src: ['assets/**/*'],
 						dest: 'build/'
+					},
+					{
+						expand: true,
+						dot: true,
+						cwd: 'assets',
+						dest: 'build/',
+						src: [
+							'*.{ico,txt,json}'
+						]
 					}
 				],
 			},
@@ -56,8 +65,16 @@ module.exports = function(grunt) {
 					cwd: 'assets',
 					dest: 'build/assets',
 					src: [
-						'*.{ico,txt,json}',
+						'*.{txt,json}',
 						'images/**/*'
+					]
+				},{
+					expand: true,
+					dot: true,
+					cwd: 'assets',
+					dest: 'build/',
+					src: [
+						'*.{ico,txt,json}'
 					]
 				},{
 					expand: true,
