@@ -1,6 +1,6 @@
 
 {
-	"title": "GDC Video - Hearthstone: 10 Bits Of Design Wisdom",
+	"title": "GDC Video - Hearthstone: 10 Bits of Design Wisdom",
 	"type": "article",
 	"template": "article",
 	"author": "Tidwell",
