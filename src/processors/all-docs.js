@@ -25,9 +25,12 @@ module.exports = function allDocsProcessor(writeFilesProcessor, renderDocsProces
 
 			//sort by date descending
 			docList.sort(function compare(a, b) {
-				if (a.date > b.date)
+				if (!a.date && !b.date) { return 0; }
+				if (!a.date) { return -1; }
+				if (!b.date) { return 1; }
+				if (a.date.getTime() > b.date.getTime())
 					return -1;
-				if (a.date < b.date)
+				if (a.date.getTime() < b.date.getTime())
 					return 1;
 				return 0;
 			});
