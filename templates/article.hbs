@@ -1,8 +1,11 @@
 {{> header }}
 <div class="container-fluid article">
 	<div class="row">
-		{{> sidebar }}
-		<section class="col-md-8 col-sm-12 col-md-offset-4 main-content">
+		<section class="sidebar col-md-12 col-sm-12" data-sidebar style="background-image: url('/assets/images/{{doc.metadata.image}}');">
+			{{> sidebar }}
+		</section>
+		<section class="col-md-12 col-sm-12 main-content">
+			<img src="/assets/images/{{doc.metadata.image}}" class="hdr-image" alt="Article Image" />
 			<h1>{{ doc.metadata.title }}</h1>
 			<hr />
 			{{{ doc.fileInfo.content }}}

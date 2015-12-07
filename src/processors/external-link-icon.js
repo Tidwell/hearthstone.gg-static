@@ -19,7 +19,8 @@ module.exports = function externalLinkProcessor(writeFilesProcessor) {
 						link.innerHTML = link.innerHTML + ' <i class="fa fa-external-link"></i>';
 					}
 				});
-				doc.fileInfo.content = jsdom.serializeDocument(domDoc.defaultView.document.body).replace('<body>','').replace('</body>','');
+				var serializedMarkup = jsdom.serializeDocument(domDoc.defaultView.document.body);
+				doc.fileInfo.content = serializedMarkup.replace('<body>','').replace('</body>','');
 			});
 			return docs;
 		}

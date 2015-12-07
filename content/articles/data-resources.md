@@ -6,7 +6,8 @@
 	"author": "Tidwell",
 	"date": "1448305145453",
 	"category": "Developer Resources",
-	"description": "Summary of third party sources for Hearthstone data and information for extracting the assets and data manually from the game files."
+	"description": "Summary of third party sources for Hearthstone data and information for extracting the assets and data manually from the game files.",
+	"image": "hex-frog.jpg"
 }
 
 ---

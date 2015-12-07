@@ -1,7 +1,9 @@
 {{> header }}
 <div class="container-fluid page">
 	<div class="row">
-		{{> sidebar }}
+		<section class="sidebar col-md-4 col-sm-12" data-sidebar>
+			{{> sidebar }}
+		</section>
 		<section class="col-md-8 col-sm-12 col-md-offset-4 main-content">
 			{{{ doc.fileInfo.content }}}
 		</section>

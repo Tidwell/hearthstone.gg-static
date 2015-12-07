@@ -12,6 +12,7 @@ module.exports = function metadataPostProcessor(writeFilesProcessor) {
 				var metadata = doc.metadata;
 				//format a date as a js date object
 				if (metadata.date) { metadata.date = new Date(Number(metadata.date)); }
+				if (!metadata.image) { metadata.image = 'hex-frog.jpg'; }
 			});
 		}
 	};

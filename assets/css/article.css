@@ -1,3 +1,6 @@
+.article .main-content {
+	max-width: 100%;
+}
 .article .main-content h1+hr {
 	margin-bottom: 2em;
 }
@@ -20,4 +23,17 @@
     margin-left: 1em;
     margin-top: 2em;
     margin-bottom: 4em;
+}
+.article .sidebar.menu-open .menu {
+	box-shadow: 3px 0 10px rgba(0,0,0,.5);
+}
+
+.hdr-image {
+	display: none;
+}
+
+@media (min-width: 992px){
+	.article .sidebar {
+		position: relative;
+	}
 }
