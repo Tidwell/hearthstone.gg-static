@@ -6,7 +6,8 @@
 	"author": "Tidwell",
 	"date": "1434427200000",
 	"category": "Design Videos",
-	"description": "Derek Sakamota's 2015 GDC talk about designing the Hearthstone UI."
+	"description": "Derek Sakamota's 2015 GDC talk about designing the Hearthstone UI.",
+	"image": "box.jpg"
 }
 
 ---

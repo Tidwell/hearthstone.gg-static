@@ -6,7 +6,8 @@
 	"author": "Tidwell",
 	"date": "1444867200000",
 	"category": "Design Videos",
-	"description": "Ben Brode's Designer Insights video #2, focusing on the change to Warsong Commander."
+	"description": "Ben Brode's Designer Insights video #2, focusing on the change to Warsong Commander.",
+	"image": "warsong-commander.jpg"
 }
 
 ---

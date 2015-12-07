@@ -6,7 +6,8 @@
 	"author": "Tidwell",
 	"date": "1448235748590",
 	"category": "Game Internals",
-	"description": "Analysis of the Hearthstone log file, the format, output, and tools for working with the logs."
+	"description": "Analysis of the Hearthstone log file, the format, output, and tools for working with the logs.",
+	"image": "logs.jpg"
 }
 
 ---

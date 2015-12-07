@@ -6,7 +6,8 @@
 	"author": "Tidwell",
 	"date": "1449362188775",
 	"category": "Design Videos",
-	"description": "Eric Dodds' 2015 GDC talk about ten different design wisdoms the Hearthstone team embraces.  Video and summary."
+	"description": "Eric Dodds' 2015 GDC talk about ten different design wisdoms the Hearthstone team embraces.  Video and summary.",
+	"image": "box.jpg"
 }
 
 ---

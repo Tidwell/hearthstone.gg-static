@@ -6,7 +6,8 @@
 	"author": "Tidwell",
 	"date": "1441857600000",
 	"category": "Design Videos",
-	"description": "Ben Brode's Designer Insights video #1, focusing on how Blizzard releases new content."
+	"description": "Ben Brode's Designer Insights video #1, focusing on how Blizzard releases new content.",
+	"image": "hex-frog.jpg"
 }
 
 ---

@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 
 	//group files to be passed to watching or jshint
 	var jsFiles = ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js', 'assets/js/**/*.js', 'bower.json', 'package.json'];
-	var otherFiles = ['content/**/*', 'templates/**/*', 'assets/css/**/*'];
+	var otherFiles = ['content/**/*', 'templates/**/*', 'assets/css/**/*', 'assets/images/**/*'];
 	var allFiles = jsFiles.concat(otherFiles);
 
 	//define paths for the static site generator
