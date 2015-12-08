@@ -27,7 +27,7 @@ Brode explains that basic cards additionally provide a progression mechanism for
 As for the argument raised by many players that these cards constitute power creep, Brode clarifies the design team's definition of power creep.  "Power creep is occurring if the decks that people are playing (the meta) get more powerful."  Using this reasoning, he explains that if a card isn't played, it has no effect on the power level of the game.  He does concede, however, that Dr. Boom *is* power creep because he is played a lot - *but* it has no relation to the existence of War Golem.  "It isn't like people took out War Golem for Dr. Boom," he says.
 
 
-In summary, Brode wants to make clear that Blizzard should be able to create "strictly better" versions of basic cards if those cards see no played.  These cards serve a very specific role, and the existence of "strictly better" cards in expansion content is not a direct example of "power creep."
+Brode wants to make clear that Blizzard should be able to create "strictly better" versions of basic cards if those cards see no played.  These cards serve a very specific role, and the existence of "strictly better" cards in expansion content is not a direct example of "power creep."
 
 
 [ed note: [Extra Credits][3] did an excellent episode on Power Creep, specifically around the same cards that Ben Brode is discussing in this video.]
