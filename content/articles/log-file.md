@@ -1,6 +1,6 @@
 
 {
-	"title": "Deep Dive into the Hearthstone Log File",
+	"title": "Introduction to the Hearthstone Log File",
 	"type": "article",
 	"template": "article",
 	"author": "Tidwell",
