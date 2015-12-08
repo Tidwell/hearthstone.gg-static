@@ -18,11 +18,11 @@ On the [official Hearthstone youtube] [1] Ben Brode has been releasing Designer 
 
 <a name="summary"></a>
 
-In Ben Brode's third Designer Insights video, he addresses the misconceptions many players may hold surrounding the role and purpose of basic cards.
+In Ben Brode's third Designer Insights video, he addresses the misconceptions many players may hold surrounding the role and purpose of basic cards.  Largely spawned by player concerns around "power creep" with Ice Rager/Magma Rager, Evil Heckler/Booty Bay Bodyguard, and Dr. Boom/War Golem, Brode candidly discusses the design team's definition for "power creep".
 
 His main point describes how basic cards serve "a lot more roles than every other card in the game."  He points out that they are the first thing a new player will see when they are introduced to Hearthstone, and for some players that could be an introduction to the entire CCG genre.  Accordingly, they are intended to be mechanically simple, though in some cases can be very powerful as with Fireball, Consecrate, or Frostbolt.
 
-Brode explains that basic cards additionally provide a progression mechanism for enhancing the "power" of a player's deck. "We want some of the basic cards to be really bad...really bad to help make that feeling of progression even stronger," he says.  Though he admits that this feeling tapers out at a certain point, and progression shifts to an exploration of additional options, they serve a valuable tool for teaching players what cards to put in a deck.
+Brode explains that basic cards additionally provide a progression mechanism for enhancing the "power" of a player's deck. "We want some of the basic cards to be really bad...really bad to help make that feeling of progression even stronger," he says.  Though he admits that this feeling tapers out at a certain point, and progression shifts to an exploration of additional options, basic cards serve a valuable tool for teaching players what cards to put in their deck (or exclude, in some cases).
 
 As for the argument raised by many players that these cards constitute power creep, Brode clarifies the design team's definition of power creep.  "Power creep is occurring if the decks that people are playing (the meta) get more powerful."  Using this reasoning, he explains that if a card isn't played, it has no effect on the power level of the game.  He does concede, however, that Dr. Boom *is* power creep because he is played a lot - *but* it has no relation to the existence of War Golem.  "It isn't like people took out War Golem for Dr. Boom," he says.
 
@@ -35,4 +35,5 @@ Brode wants to make clear that Blizzard should be able to create "strictly bette
  [1]: https://www.youtube.com/channel/UCVia_crjzJylRmGq7SHTiaw "Hearthstone on Youtube"
  [2]: #summary "video summary"
  [3]: https://www.youtube.com/watch?v=Bxszx60ZwGw "Extra Credits: Power Creep in Hearthstone - What It Teaches Us About Games"
+
 
