@@ -1,0 +1,6 @@
+.search-content {
+	display: none;
+}
+.js-active.search-content {
+	display: block;
+}

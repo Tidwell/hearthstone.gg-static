@@ -53,6 +53,9 @@
 }
 
 
+.sidebar.js-active {
+	z-index: 5;
+}
 .sidebar.js-active, .main-content.js-active {
 	left: 0;
 	transition: left 200ms ease-in-out;
@@ -102,6 +105,10 @@
 	box-shadow: 1px 1px 2px #fff;
 }
 
+.sidebar .search-form {
+	display: none;
+}
+
 .sidebar.js-active .menu {
 	box-sizing: border-box;
 	color: rgb(71, 163, 218);
@@ -133,6 +140,26 @@
 	width: 100%;
 }
 
+.sidebar.js-active .navbar-form {
+	border: 0 0 0 0;
+}
+.sidebar.js-active .search-form {
+	display: block;
+	text-align: center;
+	padding-top: 2em;
+}
+.sidebar.js-active .search-form input {
+	
+	background: #3d3d3d;
+	border-color: rgba(85,155,155,1);
+	color: #fff;
+}
+.sidebar.js-active .search-form button {
+	background: rgba(85,155,155,1);
+	border-color: rgba(85,155,155,1);
+}
+
+
 @media (min-width: 992px) {
 	.sidebar {
 	    height: 100%;
@@ -145,8 +172,5 @@
 	.sidebar .menu li {
 		float: none;
 		margin: 0 0 1em 0;
-	}
-	.sidebar.js-active.menu-open .menu {
-
 	}
 }

@@ -1,0 +1,23 @@
+{{> header }}
+<div class="container-fluid page search">
+	<div class="row">
+		<section class="sidebar col-md-4 col-sm-12" data-sidebar>
+			{{> sidebar }}
+		</section>
+		<section class="col-md-8 col-sm-12 col-md-offset-4 main-content">
+			{{{ doc.fileInfo.content }}}
+			<noscript>
+				Enable javascript to use search.
+			</noscript>
+			<div class="search-content">
+				{{> search}}
+				<br />
+				<p>Results for: <span data-search-query></span></p>
+				<div data-search-results>
+				</div>
+			</div>
+
+		</section>
+	</div>
+</div>
+{{> footer }}
