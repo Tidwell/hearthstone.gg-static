@@ -4,7 +4,7 @@
 	"type": "article",
 	"template": "article",
 	"author": "Tidwell",
-	"date": "1450806239873",
+	"date": "1450985746081",
 	"category": "Design Videos",
 	"description": "Ben Brode's Designer Insights video #4 discussing consistency with Hearthstone card text.",
 	"image": "brode.jpg"
