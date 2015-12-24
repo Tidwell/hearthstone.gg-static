@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 				files: [
 					{
 						expand: true,
-						src: ['assets/**/*'],
+						src: ['assets/**/*', '!assets/**/*.html', '!assets/**/*.{ico,txt,json}'],
 						dest: 'build/'
 					},
 					{
@@ -51,6 +51,14 @@ module.exports = function(grunt) {
 						src: [
 							'*.{ico,txt,json}'
 						]
+					},{
+						expand: true,
+						dot: true,
+						cwd: 'assets',
+						dest: 'build/',
+						src: [
+							'*.html'
+						]
 					}
 				],
 			},
@@ -60,6 +68,14 @@ module.exports = function(grunt) {
 			*/
 			build: {
 				files: [{
+					expand: true,
+					dot: true,
+					cwd: 'assets',
+					dest: 'build/',
+					src: [
+						'*.html'
+					]
+				},{
 					expand: true,
 					dot: true,
 					cwd: 'assets',
