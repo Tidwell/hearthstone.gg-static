@@ -79,7 +79,7 @@
 }
 .sidebar.js-active .menu li {
 	float: none;
-	margin: 0 0 1em 1em;
+	margin: 0 0 1em 0;
 }
 
 /*
