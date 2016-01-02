@@ -1,6 +1,6 @@
 
 {
-	"title": "HearthstoneJSON releases update",
+	"title": "HearthstoneJSON Releases Update",
 	"type": "article",
 	"template": "article",
 	"author": "Tidwell",
